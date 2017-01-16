@@ -16,9 +16,9 @@ border-radius: 0;
 .layout .icon {display: none}
 
 .layout.button {
-left:10vh;
-bottom:10vh;
-top:82vh;
+left:5vh;
+bottom:5vh;
+top:87vh;
 height:8vh;width:8vh;
 border-radius: 4vh;
 border: 1px solid rgba(0,0,0,0.5);
