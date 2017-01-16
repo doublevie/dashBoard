@@ -37,7 +37,9 @@ cursor: pointer;
   position: fixed;left:0;bottom:0;right:0;top:50px;padding:0 0 0 280px;
   z-index: 2;
 }
-
+.section .inner {
+  padding:15px;
+}
 
 .layout.button + .section {padding-left: 0;}
 ul.control {
@@ -80,7 +82,7 @@ color:#111;
   border-color: #FF6F00 ;
 color:#fff;
 }
-
+.form-control {border-radius: 0}
 .form-control:focus {
   border-color: #FF6F00;
   outline: 0;
