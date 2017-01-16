@@ -2,7 +2,7 @@
 
 .layout {
 position: fixed;
-left:0;top:0;bottom:0;width:280px;right:auto;
+left:0;top:50px;bottom:0;width:280px;right:auto;
 border: 1px solid rgba(0,0,0,0.15);
 padding:0;
 z-index: 9;
@@ -34,14 +34,18 @@ cursor: pointer;
 
 
 .section {
-  position: fixed;left:0;bottom:0;right:0;top:0;padding:0 0 0 280px;
+  position: fixed;left:0;bottom:0;right:0;top:50px;padding:0 0 0 280px;
   z-index: 2;
 }
 
 
 .layout.button + .section {padding-left: 0;}
-
-
+ul.control {
+  list-style: none;width:100%;float: left;display: block;margin:15px 0 0 0;padding:0;border-top: 1px solid rgba(0,0,0,0.1);
+}
+ul.control li {
+  float: left;display: block;width: 100%; border-bottom:1px solid rgba(0,0,0,0.1);padding:10px ;cursor:pointer;
+}
 
 
 .layout , .layout.btn , .section{
@@ -67,8 +71,8 @@ cursor: pointer;
 
 /*theme */
 .layout {
-  background: #FFECB3 ;
-  border-color: #FFECB3 ;
+  background: #FFF ;
+  border-color: rgba(0,0,0,0.2) ;
 color:#111;
 }
 .layout.button {
