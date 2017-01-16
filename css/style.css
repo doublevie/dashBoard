@@ -6,6 +6,7 @@ left:0;top:50px;bottom:0;width:280px;right:auto;
 border: 1px solid rgba(0,0,0,0.15);
 padding:0;
 z-index: 9;
+border-radius: 0;
 }
 
 .layout .inner {
@@ -22,6 +23,7 @@ height:8vh;width:8vh;
 border-radius: 4vh;
 border: 1px solid rgba(0,0,0,0.5);
 cursor: pointer;
+transform: rotateY(180deg);
 }
 
 .layout.button .icon {
@@ -42,15 +44,20 @@ cursor: pointer;
 }
 
 .layout.button + .section {padding-left: 0;}
+ .layout  + .section .panel-heading {background: #FFECB3}
+
+
+
+.layout.button  + .section .panel-heading {background: #f5f5f5;border-color:#f5f5f5 }
 ul.control {
   list-style: none;width:100%;float: left;display: block;margin:15px 0 0 0;padding:0;border-top: 1px solid rgba(0,0,0,0.1);
 }
 ul.control li {
   float: left;display: block;width: 100%; border-bottom:1px solid rgba(0,0,0,0.1);padding:10px ;cursor:pointer;
 }
+ul.control li:hover {background:rgba(0,0,0,0.1)}
 
-
-.layout , .layout.btn , .section{
+.layout , .layout.btn , .section , .panel-heading{
   /*transition: all 0.8s ease;*/
 
   -webkit-transition: all 500ms cubic-bezier(0.055, 0.605, 0.725, 1); /* older webkit */
