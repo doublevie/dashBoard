@@ -67,8 +67,9 @@
 
 
  <ul class="control">
-<li><i class="fa fa-dashboard"></i> Dashboard</li>
-<li><i class="fa fa-bar-chart"></i> Charts</li>
+<li  onClick="showSection('dashInner')"><i class="fa fa-dashboard"></i> Dashboard</li>
+<li onClick="showSection('chartsInner')"><i class="fa fa-bar-chart"></i> Charts</li>
+<li onClick="showSection('clientsInner')"><i class="fa fa-address-book"></i> Clients</li>
 <li><i class="fa fa-puzzle-piece"></i> Elements</li>
 <li><i class="fa fa-cog"></i> Configuration</li>
  </ul>
@@ -79,10 +80,13 @@
 
 
 
-<div class="section">
-<div class="inner">
-<div class="row">
 
+
+
+<div class="section">
+
+<div class="inner dashInner active">
+<div class="row">
 <div class="col-md-4">
   <div class="panel panel-default">
     <div class="panel-heading">Sales</div>
@@ -91,9 +95,6 @@
     </div>
   </div>
 </div>
-
-
-
 <div class="col-md-4">
   <div class="panel panel-default">
     <div class="panel-heading">Orders</div>
@@ -102,7 +103,6 @@
     </div>
   </div>
 </div>
-
 <div class="col-md-4">
   <div class="panel panel-default">
     <div class="panel-heading">Charges</div>
@@ -111,11 +111,26 @@
     </div>
   </div>
 </div>
-
-
-
 </div>
 </div>
+
+
+
+
+
+
+
+<div class="inner chartsInner">
+charts goes Here
+</div>
+
+
+<div class="inner clientsInner">
+clientsInner goes Here
+</div>
+
+
+
 
 </div>
 

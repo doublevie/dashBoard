@@ -1,4 +1,4 @@
-
+body {height: 100vh;overflow: hidden;}
 
 .layout {
 position: fixed;
@@ -13,6 +13,10 @@ border-radius: 0;
   display: block;
   padding:10px;
 }
+
+
+
+
 .layout .icon {display: none}
 
 .layout.button {
@@ -41,6 +45,11 @@ transform: rotateY(180deg);
 }
 .section .inner {
   padding:15px;
+  display:none;
+}
+
+.section .inner.active {
+  display:block;
 }
 
 .layout.button + .section {padding-left: 0;}

@@ -34,3 +34,18 @@ var ul = document.querySelector('ul.control').innerHTML ,
 
 
 }
+
+
+
+
+
+
+
+function showSection(string , callback) {
+
+if (callback) callback();
+document.querySelector('.inner.active').classList.remove('active');
+document.querySelector('.'+string).classList.add('active');
+
+
+}
