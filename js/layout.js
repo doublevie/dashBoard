@@ -4,6 +4,7 @@
 function toggleLyout(){
   document.querySelector('.layout').classList.toggle('button');
   if (document.querySelector('.layout.button') == null ) document.querySelector('[name="search"]').focus();
+ 
 }
 
 window.onload = function(){
@@ -36,7 +37,9 @@ var ul = document.querySelector('ul.control').innerHTML ,
 }
 
 
-
+var divs = {
+  dashPop : document.querySelector('.pop'),
+}
 
 
 
@@ -46,6 +49,14 @@ function showSection(string , callback) {
 if (callback) callback();
 document.querySelector('.inner.active').classList.remove('active');
 document.querySelector('.'+string).classList.add('active');
+}
 
+
+function animationFull(x,y) {
+   ramjet.transform( x, y , {
+  done: function () {
+     y.classList.remove('hidd');
+  }
+});
 
 }
