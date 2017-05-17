@@ -1,10 +1,10 @@
-
+moment.lang('fr');
 
 
 function toggleLyout(){
   document.querySelector('.layout').classList.toggle('button');
   if (document.querySelector('.layout.button') == null ) document.querySelector('[name="search"]').focus();
- 
+
 }
 
 window.onload = function(){
@@ -46,17 +46,46 @@ var divs = {
 
 function showSection(string , callback) {
 
+if (document.querySelector('.pop').classList.contains('hidd')) {
+} else {
+  ramjet.transform( document.querySelector('.pop'), document.querySelector('.control') , {
+ done: function () {
+   document.querySelector('.pop').classList.add('hidd');
+ }
+});
+}
 if (callback) callback();
 document.querySelector('.inner.active').classList.remove('active');
 document.querySelector('.'+string).classList.add('active');
 }
 
 
-function animationFull(x,y) {
+function animationFull(x,y , callback) {
+  if(callback) callback();
    ramjet.transform( x, y , {
   done: function () {
      y.classList.remove('hidd');
   }
 });
+}
 
+
+
+
+
+
+
+var showPop =   {
+
+  recette : function () {
+var inH = '<h2 align="center">Recette</h2>';
+ inH += '<h1 align="center">0.00</h1>';
+document.querySelector('.pop').innerHTML = inH;
+  } ,
+  datetime : function(){
+var clock = moment().format('HH:MM');
+var time = moment().format('dddd DD MMMM YYYY');
+document.querySelector('.pop').innerHTML = '<h1 align="center" class="timeText">'+clock+'</h1><h2 align="center" class="dateText">'+time+'</h2>';
+
+  }
 }
