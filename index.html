@@ -68,7 +68,7 @@
 
  <ul class="control">
 <li  onClick="showSection('dashInner')"><i class="fa fa-dashboard"></i> Dashboard</li>
-<li onClick="showSection('chartsInner')"><i class="fa fa-bar-chart"></i> Charts</li>
+<li onClick="showSection('chartsInner')"><i class="fa fa-bar-chart"></i> Stock</li>
 <li onClick="showSection('clientsInner')"><i class="fa fa-address-book"></i> Clients</li>
 <li><i class="fa fa-puzzle-piece"></i> Elements</li>
 <li><i class="fa fa-cog"></i> Configuration</li>
@@ -92,9 +92,9 @@
 <div class="row">
 
   <div class="col-sm-3">
-  <div class="well well-sm" onclick="animationFull(this,divs.dashPop,showPop.datetime)">
-  <h3>0:22</h3>
-  <h4>JEUDI 15 SEPTEMBRE 2015</h4>
+  <div class="well well-sm" onclick="animationFull(this,divs.dashPop,showPop.dateandtime)">
+  <h3 timeNow>0:22</h3>
+  <h4 dateNow>JEUDI 15 SEPTEMBRE 2015</h4>
 
   </div>
   </div>
@@ -102,7 +102,7 @@
 <div class="col-sm-3">
 <div class="well well-sm">
   <div align="center">
-    <img src="img/monitor.png" alt="">
+    <img src="img/vc.png" alt="">
 
   </div>
 <h4>VENTE AU COMPTOIR</h4>
@@ -142,6 +142,20 @@
 </div>
 </div>
 
+
+
+<div class="col-sm-6">
+<div class="well well-sm">
+  <div align="center">
+    <img src="img/frequency.png" alt="">
+
+  </div>
+<h4>FREQUENCY</h4>
+</div>
+</div>
+
+
+
 <div class="col-sm-3">
 <div class="well well-sm">
   <div align="center">
@@ -153,6 +167,15 @@
 </div>
 
 
+<div class="col-sm-3">
+<div class="well well-sm"  onclick="animationFull(this,divs.dashPop,showPop.checkForUpdate)">
+  <div align="center">
+    <img src="img/update.png" alt="">
+
+  </div>
+<h4>MISE A JOUR</h4>
+</div>
+</div>
 
 <div class="col-sm-3">
 <div class="well well-sm">

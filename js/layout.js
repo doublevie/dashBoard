@@ -1,4 +1,4 @@
-moment.lang('fr');
+moment.locale('fr');
 
 
 function toggleLyout(){
@@ -45,7 +45,6 @@ var divs = {
 
 
 function showSection(string , callback) {
-
 if (document.querySelector('.pop').classList.contains('hidd')) {
 } else {
   ramjet.transform( document.querySelector('.pop'), document.querySelector('.control') , {
@@ -75,17 +74,33 @@ function animationFull(x,y , callback) {
 
 
 
+
 var showPop =   {
+  datetime : {
+    time : function(){return moment().format('HH:MM') } ,
+    date : function(){return moment().format('dddd DD MMMM YYYY').toUpperCase()} ,
+  },
 
   recette : function () {
 var inH = '<h2 align="center">Recette</h2>';
  inH += '<h1 align="center">0.00</h1>';
 document.querySelector('.pop').innerHTML = inH;
   } ,
-  datetime : function(){
-var clock = moment().format('HH:MM');
-var time = moment().format('dddd DD MMMM YYYY');
-document.querySelector('.pop').innerHTML = '<h1 align="center" class="timeText">'+clock+'</h1><h2 align="center" class="dateText">'+time+'</h2>';
+  dateandtime : function(){
+document.querySelector('.pop').innerHTML = '<h1 align="center" class="timeText">'+showPop.datetime.time()+'</h1><h2 align="center" class="dateText">'+showPop.datetime.date()+'</h2>';
 
+  } ,
+  checkForUpdate :function(){
+    document.querySelector('.pop').innerHTML = '<br><br><br><br><br><h2 align="center">Recherche des mises à jour</h2><h1 align="center">Chargement..</h1>';
   }
 }
+
+function updateTime() {
+  document.querySelector('[timeNow]').innerHTML = showPop.datetime.time();
+  document.querySelector('[dateNow]').innerHTML = showPop.datetime.date();
+  window.setTimeout(function(){
+updateTime();
+  },60000);
+}
+
+updateTime();
