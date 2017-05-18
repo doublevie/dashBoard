@@ -67,7 +67,7 @@
 
 
  <ul class="control">
-<li  onClick="showSection('dashInner')"><i class="fa fa-dashboard"></i> Dashboard</li>
+<li  onClick="showSection('dashInner')"><i class="fa fa-dashboard"></i> Tableau de bord</li>
 <li onClick="showSection('chartsInner')"><i class="fa fa-bar-chart"></i> Stock</li>
 <li onClick="showSection('clientsInner')"><i class="fa fa-address-book"></i> Clients</li>
 <li><i class="fa fa-puzzle-piece"></i> Elements</li>
@@ -84,20 +84,102 @@
 
 
 <div class="section">
-<div class="pop hidd" onclick="this.classList.add('hidd')">
-<h1 align="center">Date et heure</h1>
-</div>
+<div class="pop hidd" >
+ </div>
 <div class="inner dashInner active">
 
 <div class="row">
 
   <div class="col-sm-3">
-  <div class="well well-sm" onclick="animationFull(this,divs.dashPop,showPop.dateandtime)">
+  <div class="well well-sm"  theme="cyan" onclick="animationFull(this,divs.dashPop,showPop.dateandtime)">
   <h3 timeNow>0:22</h3>
   <h4 dateNow>JEUDI 15 SEPTEMBRE 2015</h4>
 
   </div>
   </div>
+
+<div class="col-sm-3">
+<div class="well well-sm" theme="red">
+  <div align="center">
+    <img src="img/alarmd-256.png" alt="">
+
+  </div>
+<h4>ALERTS</h4>
+</div>
+</div>
+
+
+
+
+<div class="col-sm-3">
+<div class="well well-sm" theme="green">
+  <div align="center">
+    <img src="img/save.png" alt="">
+
+  </div>
+<h4>SAUVEGARDE</h4>
+</div>
+</div>
+
+
+
+
+<div class="col-sm-3" >
+<div class="well well-sm" theme="blue" onclick="animationFull(this,divs.dashPop,showPop.recette)">
+  <div align="center">
+    <img src="img/money.png" alt="">
+
+  </div>
+<h4>RECETTE</h4>
+</div>
+</div>
+
+<div class="col-sm-3">
+  <div class="well well-sm" theme="yellow" onclick="animationFull(this,divs.dashPop,showPop.checkForUpdate)">
+    <div align="center">
+      <img src="img/update.png" alt="">
+
+    </div>
+    <h4>MISE A JOUR</h4>
+  </div>
+</div>
+
+
+<div class="col-sm-6">
+<div class="well well-sm"  onclick="animationFull(this,divs.dashPop,showPop.frequency)">
+  <div align="center">
+    <img src="img/frequency.png" alt="">
+
+  </div>
+<h4>FREQUENCY</h4>
+</div>
+</div>
+
+
+
+
+<div class="col-sm-3">
+<div class="well well-sm">
+  <div align="center">
+    <img src="img/info-256.png" alt="">
+
+  </div>
+<h4>ASSISTANCE</h4>
+</div>
+</div>
+
+<div class="col-sm-3">
+  <div class="well well-sm">
+    <div align="center">
+      <img src="img/wrech.png" alt="">
+
+    </div>
+    <h4>PARAMÈTRES</h4>
+  </div>
+</div>
+
+
+
 
 <div class="col-sm-3">
 <div class="well well-sm">
@@ -109,73 +191,6 @@
 </div>
 </div>
 
-
-
-<div class="col-sm-3">
-<div class="well well-sm">
-  <div align="center">
-    <img src="img/agt_forum-256.png" alt="">
-
-  </div>
-<h4>CLIENTS</h4>
-</div>
-</div>
-
-
-<div class="col-sm-3">
-<div class="well well-sm"  onclick="animationFull(this,divs.dashPop,showPop.recette)">
-  <div align="center">
-    <img src="img/money.png" alt="">
-
-  </div>
-<h4>RECETTE</h4>
-</div>
-</div>
-
-<div class="col-sm-3">
-<div class="well well-sm">
-  <div align="center">
-    <img src="img/wrech.png" alt="">
-
-  </div>
-<h4>PARAMÈTRES</h4>
-</div>
-</div>
-
-
-
-<div class="col-sm-6">
-<div class="well well-sm">
-  <div align="center">
-    <img src="img/frequency.png" alt="">
-
-  </div>
-<h4>FREQUENCY</h4>
-</div>
-</div>
-
-
-
-<div class="col-sm-3">
-<div class="well well-sm">
-  <div align="center">
-    <img src="img/save.png" alt="">
-
-  </div>
-<h4>SAUVEGARDE</h4>
-</div>
-</div>
-
-
-<div class="col-sm-3">
-<div class="well well-sm"  onclick="animationFull(this,divs.dashPop,showPop.checkForUpdate)">
-  <div align="center">
-    <img src="img/update.png" alt="">
-
-  </div>
-<h4>MISE A JOUR</h4>
-</div>
-</div>
 
 <div class="col-sm-3">
 <div class="well well-sm">
@@ -270,6 +285,7 @@ lerge text <br>lerge text <br>lerge text <br>
 
   </body>
 <script type="text/javascript" src="js/moment-with-locales.js"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/ramjet.js"></script>
 <script type="text/javascript" src="js/layout.js">
 

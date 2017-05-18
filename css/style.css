@@ -50,8 +50,27 @@ transform: rotateY(180deg);
   display:none;
 }
 
-.section .pop {height:100vh;position: fixed;left:280px;top:50px;right: 0;bottom: 0;z-index: 55454555;background: #D5EEB9;pointer-events: auto;opacity: 1}
+
+
+
+.section .pop {height:100vh;position: fixed;left:0;padding-left:280px;top:50px;right: 0;bottom: 0;z-index: 3;background: #FFCDD2;pointer-events: auto;opacity: 1}
+
+.pop[theme="red"] , .well[theme="red"]{background: #FFCDD2;}
+.pop[theme="pink"] {background: #F8BBD0;}
+.pop[theme="purple"] {background: #E1BEE7;}
+.pop[theme="idengo"] {background: #C5CAE9;}
+.pop[theme="blue"] ,.well[theme="blue"] {background: #BBDEFB;}
+.pop[theme="lightblue"] {background: #B3E5FC;}
+.pop[theme="cyan"] ,.well[theme="cyan"] {background: #B2EBF2;}
+.pop[theme="teal"] {background: #B2DFDB;}
+.pop[theme="green"] ,.well[theme="green"] {background: #DCEDC8;}
+.pop[theme="lime"] {background: #F0F4C3;}
+.pop[theme="yellow"] , .well[theme="yellow"] {background: #FFF9C4;}
+.pop[theme="amber"] ,.well[theme="amber"] {background: #FFECB3;}
+.pop[theme="orange"] {background: #FFE0B2;}
+.pop[theme="brown"] {background: #D7CCC8;}
 .section .pop.hidd {opacity: 0;pointer-events: none}
+ .pop .close {position:absolute;right:20px;right:20px;top:20px;font-size: 40px;color:rgba(0,0,0,0.5)}
 
 
 .section .inner.active {
@@ -128,10 +147,37 @@ color:#fff;
 
 .well-sm h2 {text-align: center;font-weight:200;line-height: 20vh;font-size:6vh;margin:0;}
 .well-sm h3 {text-align: center;font-weight:200;line-height: 12vh;font-size:4vh;margin:0;}
-.well-sm img {height:12vh;width:auto;}
+.well-sm img {height:8vh;margin-top: 2vh; margin-bottom:2vh;width:auto;}
 
 .well-sm h4 {text-align: center;font-weight:200;line-height: 8vh;font-size:18px;margin:0;}
 
 
 .pop h1.timeText { font-weight:200;line-height: 40vh;font-size:20vh;margin:0;}
 .pop h2.dateText { font-weight:200;line-height: 30vh;font-size:10vh;margin:0;}
+
+* {
+  -webkit-user-select:none;
+}
+.clockpoint {
+    position: relative;
+    -moz-animation: spinPoint 1s ease infinite;
+    -webkit-animation: spinPoint 1s ease infinite;
+
+}
+
+/* Simple Animation */
+@-webkit-keyframes spinPoint {
+    0% {opacity: 1.0;
+    text-shadow: none;
+}
+
+50% {
+    opacity: 0;
+    text-shadow: none;
+}
+
+100% {
+    opacity: 1.0;
+    text-shadow: none;
+}
+}
