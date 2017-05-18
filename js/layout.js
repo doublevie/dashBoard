@@ -42,10 +42,10 @@ var ul = document.querySelector('ul.control').innerHTML ,
     var i , List = '' , term = term.toLowerCase() ;
     if (term !== '') {
     for ( i = 0; i < this.clients.length; i++) {
-  if (~this.clients[i].NAME.toLowerCase().indexOf(term) || ~this.clients[i].TEL.toLowerCase().indexOf(term) )  List+= '<li>'+this.clients[i].NAME+'</li>' ;
+        if (~this.clients[i].NAME.toLowerCase().indexOf(term) || ~this.clients[i].TEL.toLowerCase().indexOf(term) )  List+= '<li onclick="showClient('+i+')">'+this.clients[i].NAME+'</li>' ;
     }
     for ( i = 0; i < this.stock.length; i++) {
-  if (~this.stock[i].PRODUCT.toLowerCase().indexOf(term) || (~this.stock[i].BARCODE.toLowerCase().indexOf(term)))     List+= '<li>'+this.stock[i].PRODUCT+'<span class="pull-right text-right">'+this.stock[i].PRICE_V+'</span></li>' ;
+  if (~this.stock[i].PRODUCT.toLowerCase().indexOf(term) || (~this.stock[i].BARCODE.toLowerCase().indexOf(term)))     List+= '<li onclick="showProduct('+i+')">'+this.stock[i].PRODUCT+'<span class="pull-right text-right">'+this.stock[i].PRICE_V+'</span></li>' ;
     }
   } else {
   List = this.defaultUl ;
@@ -89,7 +89,29 @@ function animationFull(x,y , callback) {
 }
 
 
+function showProduct (i) {
+      document.querySelector('.pop').setAttribute('theme','lightblue');
+var prod = global.stock[i],
+html2 = '<h1 align="center">'+prod.PRODUCT+'</h1>';
+document.querySelector('.pop').innerHTML = showPop.close +html2;
+ramjet.transform( document.querySelector('.well'), document.querySelector('.pop') , {
+done: function () {
+   document.querySelector('.pop').classList.remove('hidd');
+}
+});
+};
 
+function showClient (i) {
+      document.querySelector('.pop').setAttribute('theme','yellow');
+var cl = global.clients[i],
+html2 = '<h1 align="center">'+cl.NAME+'</h1>';
+document.querySelector('.pop').innerHTML = showPop.close +html2;
+ramjet.transform( document.querySelector('.well'), document.querySelector('.pop') , {
+done: function () {
+   document.querySelector('.pop').classList.remove('hidd');
+}
+});
+};
 
 
 
@@ -131,8 +153,9 @@ var htlm = '  <div align="center"><img src="img/frequency.png" style="height:8vh
  htlm += ' <div class="col-sm-6"><h1 align="center">ANNABA</h1> <h4 align="center">Adresse : Rue coloel amirouche , Annaba 23000</h4> <h4 align="center">TEL 0556.20.17.59</h4> <h4 align="center">frequency.annaba@gmail.com</h4> </div>';
   htlm += '</div>';
 document.querySelector('.pop').innerHTML = showPop.close +htlm;
+  } ,
 
-  }
+
 }
 
 function updateTime() {
@@ -142,7 +165,7 @@ if (document.querySelector('[timeNow2]'))  document.querySelector('[timeNow2]').
   window.setTimeout(function(){
 updateTime();
   },60000);
-}
+};
 
 
 updateTime();
