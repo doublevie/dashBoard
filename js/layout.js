@@ -7,12 +7,9 @@ function filter() {
 global = {
 stock : [
   {ID:'1',REF:'ABC',PRODUCT:'ISIS',BARCODE :'0123456',BC2 :'321',BC3 :'321',BC4 :'321',BC5 :'321',BC6 :'321',BC7 :'321',BC8 :'321',FAM :'321',LOC :'150',QT :'150',QTMIN :'150',PRIVE_A :'150',PRICE_V :'150',PVR :'150',PVG :'150',FADATE :'WP',PDATE :'WP',} ,
-  {ID:'1',REF:'D2',PRODUCT:'BONAL',BARCODE :'5479',BC2 :'',BC3 :'',BC4 :'',BC5 :'',BC6 :'',BC7 :'',BC8 :'',FAM :'',LOC :'1',QT :'1',QTMIN :'1',PRIVE_A :'150',PRICE_V :'350',PVR :'150',PVG :'150',FADATE :'WP',PDATE :'WP',} ,
-
-
+  {ID:'2',REF:'D2',PRODUCT:'BONAL',BARCODE :'5479',BC2 :'',BC3 :'',BC4 :'',BC5 :'',BC6 :'',BC7 :'',BC8 :'',FAM :'',LOC :'1',QT :'1',QTMIN :'1',PRIVE_A :'150',PRICE_V :'350',PVR :'150',PVG :'150',FADATE :'WP',PDATE :'WP',} ,
 ] ,
 clients : [{ID:'1',NAME:'FARES ABADOU',TEL:'0550300558'}],
-
 }
 }
 
@@ -52,9 +49,24 @@ var ul = document.querySelector('ul.control').innerHTML ,
   }
     document.querySelector('ul.control').innerHTML = List ;
   }
+}
 
+function buildStock(search) {
+  document.getElementById('stockres').innerHTML = 'chargement..';
+
+var sttbl = '', list = global.stock;
+
+if (list && list.length) {
+for (var i = 0; i < list.length; i++) {
+  console.log(list[i].PRODUCT.toLowerCase().indexOf(search));
+if (search == '' || (list[i].PRODUCT.toLowerCase().indexOf(search) !== -1 || list[i].BARCODE.toLowerCase().indexOf(search) !== -1 || list[i].PRICE_V.toLowerCase().indexOf(search) !== -1)) sttbl += '<tr onclick="showProduct('+i+')"><td>'+global.stock[i].REF+'</td><td>'+global.stock[i].PRODUCT+'</td><td>'+global.stock[i].PRICE_V+'</td><td>'+global.stock[i].QT+'</td><td></td><td></td><td></td></tr>'  ;
 
 }
+}
+
+document.getElementById('stockres').innerHTML = sttbl;
+}
+
 
 
 var divs = {
@@ -65,14 +77,7 @@ var divs = {
 
 
 function showSection(string , callback) {
-if (document.querySelector('.pop').classList.contains('hidd')) {
-} else {
-  ramjet.transform( document.querySelector('.pop'), document.querySelector('.control') , {
- done: function () {
-   document.querySelector('.pop').classList.add('hidd');
- }
-});
-}
+
 if (callback) callback();
 document.querySelector('.inner.active').classList.remove('active');
 document.querySelector('.'+string).classList.add('active');
@@ -94,11 +99,16 @@ function showProduct (i) {
 var prod = global.stock[i],
 html2 = '<h1 align="center">'+prod.PRODUCT+'</h1>';
 document.querySelector('.pop').innerHTML = showPop.close +html2;
-ramjet.transform( document.querySelector('.well'), document.querySelector('.pop') , {
-done: function () {
+
+
+  ramjet.transform( document.querySelector('.navbar'), document.querySelector('.pop') , {
+  done: function () {
    document.querySelector('.pop').classList.remove('hidd');
-}
-});
+  }
+  });
+
+
+
 };
 
 function showClient (i) {

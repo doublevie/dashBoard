@@ -68,7 +68,7 @@
 
  <ul class="control">
 <li  onClick="showSection('dashInner')"><i class="fa fa-dashboard"></i> Tableau de bord</li>
-<li onClick="showSection('chartsInner')"><i class="fa fa-bar-chart"></i> Stock</li>
+<li onClick="showSection('chartsInner');buildStock('')"><i class="fa fa-bar-chart"></i> Stock</li>
 <li onClick="showSection('clientsInner')"><i class="fa fa-address-book"></i> Clients</li>
 <li><i class="fa fa-puzzle-piece"></i> Elements</li>
 <li><i class="fa fa-cog"></i> Configuration</li>
@@ -238,32 +238,18 @@
 
 
 <div class="inner chartsInner">
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
-lerge text <br>lerge text <br>lerge text <br>
+
+<div align="center">
+<input type="text" name="" value="" class="form-control" style="width:50vw;" placeholder="recherche" onkeyup="buildStock(this.value)">
+</div>
+<br>
+<table class="table table-bordered">
+<tbody id="stockres">
+<td>REF</td><td>PRODUCT</td><td>PRICE_V</td><td>QT</td><td></td><td></td><td></td>
+
+</tbody>
+</table>
+
 </div>
 
 
