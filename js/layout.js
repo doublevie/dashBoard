@@ -1,4 +1,30 @@
 moment.locale('fr');
+emVersion = 200;
+
+function connectForUpdate() {
+  $.ajax({
+     url:"http://frequency-dz.com/api/em/updates/check.php?t="+emVersion,
+     dataType: 'jsonp',
+     success:function(json){
+       var btn
+
+         console.log(json);
+         if (json.status == 'ok') {
+          btn = '<h3>version '+json.version+' est disponible ! </h3></br> <a class="btn btn-danger btn-lg" style="width:200px;" name="button"> Installer</a>';
+         } else {
+           btn = 'Em  est a jour';
+         }
+         if (document.querySelector('.updatefield')) document.querySelector('.updatefield').innerHTML = btn;
+     },
+     error:function(e){
+         btn = 'Echeck';
+         if (document.querySelector('.updatefield')) document.querySelector('.updatefield').innerHTML = btn;
+
+     }
+});
+}
+
+
 
 
 var global;
@@ -151,9 +177,11 @@ document.querySelector('.pop').innerHTML = showPop.close +'<h1 align="center" cl
 document.querySelector('.pop').setAttribute('theme','cyan');
   } ,
 
+
   checkForUpdate :function(){
     document.querySelector('.pop').setAttribute('theme','yellow');
-    document.querySelector('.pop').innerHTML = showPop.close +'<br><br><br><br><br><h2 align="center">Recherche des mises à jour</h2><h1 align="center">Chargement..</h1>';
+    document.querySelector('.pop').innerHTML = showPop.close +'<br><br><br><br><br><h2 align="center">Recherche des mises à jour</h2><div align="center" class="updatefield"><h1 align="center">Chargement..</h1></div> ';
+window.setTimeout(function(){connectForUpdate()},1000);
   } ,
 
   frequency : function(){

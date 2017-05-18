@@ -22,3 +22,6 @@
 [0518/110310.042:ERROR:file_io_win.cc(163)] CreateFile C:\Program Files\temp\settings.dat: Accès refusé. (0x5)
 [0518/110310.044:ERROR:registration_protocol_win.cc(83)] TransactNamedPipe: Le canal de communication a été fermé. (0x6D)
 [0518/110310.046:ERROR:file_io_win.cc(163)] CreateFile C:\Program Files\temp\settings.dat: Accès refusé. (0x5)
+[0518/173345.258:ERROR:file_io_win.cc(163)] CreateFile C:\Program Files\temp\settings.dat: Accès refusé. (0x5)
+[0518/173345.261:ERROR:registration_protocol_win.cc(83)] TransactNamedPipe: Le canal de communication a été fermé. (0x6D)
+[0518/173345.263:ERROR:file_io_win.cc(163)] CreateFile C:\Program Files\temp\settings.dat: Accès refusé. (0x5)
