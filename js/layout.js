@@ -1,16 +1,22 @@
 moment.locale('fr');
-emVersion = 200;
 
+
+ /* --------------------------------------------- UPDATING FUNCTIONS   --------------------------- */
+ var em = {
+   version : 200,
+   branche : 'master',
+ }
 function connectForUpdate() {
   $.ajax({
-     url:"http://frequency-dz.com/api/em/updates/check.php?t="+emVersion,
+     url:"http://frequency-dz.com/api/em/updates/check.php?t="+em.version+"&b="+em.branche,
      dataType: 'jsonp',
      success:function(json){
        var btn
 
          console.log(json);
          if (json.status == 'ok') {
-          btn = '<h3>version '+json.version+' est disponible ! </h3></br> <a class="btn btn-danger btn-lg" style="width:200px;" name="button"> Installer</a>';
+           btn = '<h3>version '+json.version + ' est disponible ! </h3></br> <a link="'+json.link+'" class="btn btn-danger btn-lg" style="width:200px;" name="button" onclick="updateEm(this)"> Installer</a><br><br><br>';
+          btn += '<div class="container updateprogress" style="opacity:0"><div class="progress"><div class="progress-bar progress-bar-warning progress-update" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 1%"><span class="sr-only">60% Complete (warning)</span></div></div></div>';
          } else {
            btn = 'Em  est a jour';
          }
@@ -24,6 +30,24 @@ function connectForUpdate() {
 });
 }
 
+
+function updateEm(updatebtn) {
+var link = updatebtn.getAttribute('link');
+updatebtn.outerHTML = '<h3>Téléchargement ..</h3>';
+document.querySelector('.updateprogress').style.opacity = '1';
+animatePrgressBar(300);
+}
+
+var pbp = 0;
+function animatePrgressBar(timer) {
+  pbp++;
+  var pourc = (pbp % 100);
+  document.querySelector('.progress-update').style.width = pourc + '%';
+  window.setTimeout(function(){
+animatePrgressBar(timer);
+  },timer);
+}
+ /* ---------------------------------------------  END UPDATING FUNCTIONS   END --------------------------- */
 
 
 
