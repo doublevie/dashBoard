@@ -11,11 +11,11 @@ function connectForUpdate() {
      url:"http://frequency-dz.com/api/em/updates/check.php?t="+em.version+"&b="+em.branche,
      dataType: 'jsonp',
      success:function(json){
-       var btn
+       var btn;
 
          console.log(json);
          if (json.status == 'ok') {
-           btn = '<h3>version '+json.version + ' est disponible ! </h3></br> <a link="'+json.link+'" class="btn btn-danger btn-lg" style="width:200px;" name="button" onclick="updateEm(this)"> Installer</a><br><br><br>';
+           btn = '<h3>version '+json.version + ' est disponible ! </h3></br> <a link="'+json.link+'" class="btn btn-danger btn-lg"   name="button" onclick="updateEm(this)"> METTRE À JOUR MAINTENANT</a><br><br><br>';
           btn += '<div class="container updateprogress" style="opacity:0"><div class="progress"><div class="progress-bar progress-bar-warning progress-update" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 1%"><span class="sr-only">60% Complete (warning)</span></div></div></div>';
          } else {
            btn = 'Em  est a jour';
@@ -33,16 +33,40 @@ function connectForUpdate() {
 
 function updateEm(updatebtn) {
 var link = updatebtn.getAttribute('link');
-updatebtn.outerHTML = '<h3>Téléchargement ..</h3>';
+updatebtn.outerHTML = '<h3>Téléchargement ..<h3>';
 document.querySelector('.updateprogress').style.opacity = '1';
 animatePrgressBar(300);
 }
 
-var pbp = 0;
+var pbp = 0 , updateDone = false;
 function animatePrgressBar(timer) {
   pbp++;
   var pourc = (pbp % 100);
-  document.querySelector('.progress-update').style.width = pourc + '%';
+  if (updateDone == true && pourc == 0) window.location.reload();
+   if (document.querySelector('.progress-update')) document.querySelector('.progress-update').style.width = pourc + '%';
+
+
+   if (document.querySelector('.progress-update') ) {
+     switch(pourc) {
+         case 0:
+         document.querySelector('.progress-update').classList.remove('progress-bar-success');
+         document.querySelector('.progress-update').classList.add('progress-bar-danger');
+             break;
+         case 33:
+         document.querySelector('.progress-update').classList.remove('progress-bar-danger');
+         document.querySelector('.progress-update').classList.add('progress-bar-warning');
+             break;
+         case 66:
+         document.querySelector('.progress-update').classList.remove('progress-bar-warning');
+         document.querySelector('.progress-update').classList.add('progress-bar-success');
+             break;
+     }
+   }
+
+
+
+
+
   window.setTimeout(function(){
 animatePrgressBar(timer);
   },timer);
