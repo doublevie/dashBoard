@@ -58,6 +58,8 @@ cursor: pointer;
 .section .pop {height:100vh;position: fixed;left:0;padding-left:280px;top:50px;right: 0;bottom: 0;z-index: 3;background: #FFCDD2;pointer-events: auto;opacity: 1}
 
 .pop[theme="red"] , .well[theme="red"]{background: #FFCDD2;}
+ .layout.button[theme="red"] {background: #F44336;color:#fff}
+
 .pop[theme="pink"] {background: #F8BBD0;}
 .pop[theme="purple"] {background: #E1BEE7;}
 .pop[theme="idengo"] {background: #C5CAE9;}
@@ -67,7 +69,11 @@ cursor: pointer;
 .pop[theme="teal"] {background: #B2DFDB;}
 .pop[theme="green"] ,.well[theme="green"] {background: #DCEDC8;}
 .pop[theme="lime"] {background: #F0F4C3;}
+
 .pop[theme="yellow"] , .well[theme="yellow"] {background: #FFF9C4;}
+.layout.button[theme="yellow"] {background: #FFEB3B;coolor:#111}
+
+
 .pop[theme="amber"] ,.well[theme="amber"] {background: #FFECB3;}
 .pop[theme="orange"] {background: #FFE0B2;}
 .pop[theme="brown"] {background: #D7CCC8;}
@@ -121,7 +127,7 @@ color:#111;
 }
 .layout.button {
   background: #FF6F00 ;
-  border-color: #FF6F00 ;
+  border: none ;
 color:#fff;
 }
 .form-control {border-radius: 0}

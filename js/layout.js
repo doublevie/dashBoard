@@ -11,11 +11,10 @@ function connectForUpdate() {
      url:"http://frequency-dz.com/api/em/updates/check.php?t="+em.version+"&b="+em.branche,
      dataType: 'jsonp',
      success:function(json){
-       var btn;
+       var btn ;
 
-         console.log(json);
          if (json.status == 'ok') {
-           btn = '<h3>version '+json.version + ' est disponible ! </h3></br> <a link="'+json.link+'" class="btn btn-danger btn-lg"   name="button" onclick="updateEm(this)"> METTRE À JOUR MAINTENANT</a><br><br><br>';
+           btn = '<h3> Mise a jour  disponible ! </h3></br>version '+json.version + ' </br><a link="'+json.link+'" class="btn btn-danger btn-lg"   name="button" onclick="updateEm(this)"> METTRE À JOUR MAINTENANT</a><br><br><br>';
           btn += '<div class="container updateprogress" style="opacity:0"><div class="progress"><div class="progress-bar progress-bar-warning progress-update" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 1%"><span class="sr-only">60% Complete (warning)</span></div></div></div>';
          } else {
            btn = 'Em  est a jour';
@@ -25,7 +24,6 @@ function connectForUpdate() {
      error:function(e){
          btn = 'Echeck';
          if (document.querySelector('.updatefield')) document.querySelector('.updatefield').innerHTML = btn;
-
      }
 });
 }
@@ -33,10 +31,12 @@ function connectForUpdate() {
 
 function updateEm(updatebtn) {
 var link = updatebtn.getAttribute('link');
+window.setTimeout(function(){toggleLyout();},800);
 updatebtn.outerHTML = '<h3>Téléchargement ..<h3>';
 document.querySelector('.updateprogress').style.opacity = '1';
 animatePrgressBar(300);
 }
+
 
 var pbp = 0 , updateDone = false;
 function animatePrgressBar(timer) {
@@ -220,6 +220,21 @@ document.querySelector('.pop').setAttribute('theme','blue');
 document.querySelector('.pop').innerHTML = showPop.close +inH;
   } ,
 
+  alerts : function(){
+    document.querySelector('.layout').setAttribute('theme','red');
+var inH = '<h2 align="center">Alerts</h2>';
+ inH += '<div class="row">';
+
+ inH += '<div class="col-sm-6">';
+ inH += ' </div>';
+
+
+ inH += ' </div>';
+document.querySelector('.pop').setAttribute('theme','red');
+
+document.querySelector('.pop').innerHTML = showPop.close +inH;
+  },
+
   dateandtime : function(){
 document.querySelector('.pop').innerHTML = showPop.close +'<h1 align="center" class="timeText" timeNow2>'+showPop.datetime.time()+'</h1><h2 align="center" class="dateText">'+showPop.datetime.date()+'</h2>';
 document.querySelector('.pop').setAttribute('theme','cyan');
@@ -227,6 +242,7 @@ document.querySelector('.pop').setAttribute('theme','cyan');
 
 
   checkForUpdate :function(){
+        document.querySelector('.layout').setAttribute('theme','yellow');
     document.querySelector('.pop').setAttribute('theme','yellow');
     document.querySelector('.pop').innerHTML = showPop.close +'<br><br><br><br><br><h2 align="center">Recherche des mises à jour</h2><div align="center" class="updatefield"><h1 align="center">Chargement..</h1></div> ';
 window.setTimeout(function(){connectForUpdate()},1000);
