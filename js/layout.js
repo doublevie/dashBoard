@@ -206,6 +206,10 @@ var showPop =   {
     time : function(){return moment().format('HH')+'<span class="clockpoint">:</span>'+moment().format('mm') } ,
     date : function(){return moment().format('dddd DD MMMM YYYY').toUpperCase()} ,
   },
+  setTheme: function(x) {
+    document.querySelector('.pop').setAttribute('theme',x);
+    document.querySelector('.layout').setAttribute('theme',x);
+  },
 
   close : '<span  class="close glyphicon glyphicon-remove" onclick="showPop.closeEl()"></span>' ,
 
@@ -216,12 +220,14 @@ var showPop =   {
   recette : function () {
 var inH = '<h2 align="center">Recette</h2>';
  inH += '<h1 align="center">0.00</h1>';
-document.querySelector('.pop').setAttribute('theme','blue');
+
+showPop.setTheme('blue');
+
 document.querySelector('.pop').innerHTML = showPop.close +inH;
   } ,
 
   alerts : function(){
-    document.querySelector('.layout').setAttribute('theme','red');
+
 var inH = '<h2 align="center">Alerts</h2>';
  inH += '<div class="row">';
 
@@ -230,26 +236,26 @@ var inH = '<h2 align="center">Alerts</h2>';
 
 
  inH += ' </div>';
-document.querySelector('.pop').setAttribute('theme','red');
+
 
 document.querySelector('.pop').innerHTML = showPop.close +inH;
+  showPop.setTheme('red');
   },
 
   dateandtime : function(){
 document.querySelector('.pop').innerHTML = showPop.close +'<h1 align="center" class="timeText" timeNow2>'+showPop.datetime.time()+'</h1><h2 align="center" class="dateText">'+showPop.datetime.date()+'</h2>';
-document.querySelector('.pop').setAttribute('theme','cyan');
+  showPop.setTheme('cyan');
   } ,
 
 
   checkForUpdate :function(){
-        document.querySelector('.layout').setAttribute('theme','yellow');
-    document.querySelector('.pop').setAttribute('theme','yellow');
+  showPop.setTheme('yellow');
     document.querySelector('.pop').innerHTML = showPop.close +'<br><br><br><br><br><h2 align="center">Recherche des mises à jour</h2><div align="center" class="updatefield"><h1 align="center">Chargement..</h1></div> ';
 window.setTimeout(function(){connectForUpdate()},1000);
   } ,
 
   frequency : function(){
-    document.querySelector('.pop').setAttribute('theme','lightblue');
+      showPop.setTheme('lightblue');
 var htlm = '  <div align="center"><img src="img/frequency.png" style="height:8vh"></div> <div class="row">';
  htlm += ' <div class="col-sm-6"><h1 align="center">SETIF</h1> <h4 align="center">Boulevard ouled brahem Dallas 3eme tranche , Sétif 19000</h4> <h4 align="center">TEL 036.66.98.88</h4> <h4 align="center">frequency.setif@gmail.com</h4> </div>';
  htlm += ' <div class="col-sm-6"><h1 align="center">ANNABA</h1> <h4 align="center">Adresse : Rue coloel amirouche , Annaba 23000</h4> <h4 align="center">TEL 0556.20.17.59</h4> <h4 align="center">frequency.annaba@gmail.com</h4> </div>';
